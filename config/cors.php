@@ -6,8 +6,13 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('FRONTEND_URL')],
-
+    'allowed_origins' => [
+    env('FRONTEND_URL'),
+    env('ADMIN_FRONTEND_URL'),
+    'https://staging.simcool.io',
+    'https://admin-staging.simcool.io',
+    ],
+    
     'allowed_origins_patterns' => [],
 
     'allowed_headers' => ['*'],
