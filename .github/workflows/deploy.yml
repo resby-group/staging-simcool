@@ -24,20 +24,29 @@ jobs:
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             set -e
-            cd /var/simcool
 
-            echo "Pulling latest code..."
+            echo "📦 Deploying backend (Laravel)..."
+            cd /var/simcool
             git pull origin main
 
-            echo "Installing PHP dependencies..."
             composer install --no-interaction --prefer-dist --optimize-autoloader
 
-            echo "Running migrations..."
             php artisan migrate --force
-
-            echo "Optimizing Laravel..."
             php artisan optimize
             php artisan config:clear
             php artisan route:clear
             php artisan view:clear
+
+            echo "🎨 Building frontend (Next.js)..."
+            cd /var/simcool/frontend
+            npm install
+            npm run build
+
+            echo "🚀 Restarting PM2 apps..."
+            pm2 reload all --update-env || pm2 restart all
+
+            echo "🔁 Restarting PHP-FPM..."
+            systemctl restart php8.2-fpm || systemctl restart php-fpm
+
+            echo "✅ Deploy completed successfully"
           EOF
