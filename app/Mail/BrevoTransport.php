@@ -9,18 +9,18 @@ use GuzzleHttp\Client;
 
 class BrevoTransport extends AbstractTransport
 {
-    protected Client $client;
-    protected string $apiKey;
+    protected $client;
+    protected $apiKey;
 
-    public function __construct(string $apiKey)
+    public function __construct($apiKey)
     {
         parent::__construct();
 
-        $this->apiKey = $apiKey;
         $this->client = new Client([
             'base_uri' => 'https://api.brevo.com/v3/',
-            'timeout' => 10,
         ]);
+
+        $this->apiKey = $apiKey;
     }
 
     protected function doSend(SentMessage $message): void
@@ -34,11 +34,11 @@ class BrevoTransport extends AbstractTransport
                 'name'  => env('MAIL_FROM_NAME', 'SimCool'),
             ],
             'to' => array_map(
-                fn ($addr) => ['email' => $addr->getAddress()],
+                fn($addr) => ['email' => $addr->getAddress()],
                 $email->getTo()
             ),
             'subject' => $email->getSubject(),
-            'htmlContent' => $email->getHtmlBody() ?? nl2br($email->getTextBody() ?? ''),
+            'htmlContent' => $email->getHtmlBody() ?? $email->getTextBody(),
         ];
 
         $this->client->post('smtp/email', [
