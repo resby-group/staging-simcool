@@ -58,7 +58,7 @@ const Footer = () => {
                     </div>
 
                     {/* App Download */}
-                    {/* <div className='flex gap-4'>
+                    <div className='flex gap-4'>
                         <Link href='https://www.apple.com/in/app-store'>
                             <div className='bg-primary flex items-center gap-2 rounded-lg px-4 py-2 text-white transition-colors'>
                                 <svg className='h-6 w-6' viewBox='0 0 24 24' fill='currentColor'>
@@ -82,7 +82,7 @@ const Footer = () => {
                                 </div>
                             </div>
                         </Link>
-                    </div> */}
+                    </div>
                 </div>
 
                 {/* Main Footer Content */}
