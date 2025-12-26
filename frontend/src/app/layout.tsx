@@ -171,6 +171,7 @@ const Layout = async ({ children }: Readonly<{ children: ReactNode }>) => {
                 <Script src='https://checkout.razorpay.com/v1/checkout.js' strategy='afterInteractive' />
                 {/* <Script src='https://js.stripe.com/v3/' strategy='afterInteractive' /> */}
                 <Script src='https://sdk.cashfree.com/js/v3/cashfree.js' strategy='afterInteractive' />
+                <meta name="robots" content="noindex, nofollow">
             </head>
             <body
                 className={`${poppins.variable} ${inter.variable} bg-background text-foreground overflow-x-hidden !overflow-y-scroll`}>
