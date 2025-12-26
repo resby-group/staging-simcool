@@ -31,7 +31,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/plugins.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/kaiadmin.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow" />
+
     <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
