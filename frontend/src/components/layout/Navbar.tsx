@@ -113,8 +113,8 @@ const Navbar = () => {
                             name: 'home.nav.googlePlay',
                             href: 'https://play.google.com/store/apps/details?id=com.esim.app&hl=en_IN'
                         }
-                    ]
-                },
+                    ] 
+                }, 
                 {
                     label: 'home.nav.resources', // t('nav.resources')
                     submenu: [
