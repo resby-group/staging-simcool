@@ -27,7 +27,9 @@ jobs:
 
             echo "📦 Deploying backend (Laravel)..."
             cd /var/simcool
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
+            git clean -fd
 
             composer install --no-interaction --prefer-dist --optimize-autoloader
 
